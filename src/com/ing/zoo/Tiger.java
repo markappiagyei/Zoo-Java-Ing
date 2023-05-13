@@ -14,7 +14,7 @@ public class Tiger extends Animal {
         helloText = "rraaarww";
         System.out.println(helloText);
     }
-
+    @Override
     public void eatMeat() {
         eatText = "nomnomnom oink wubalubadubdub";
         System.out.println(eatText);

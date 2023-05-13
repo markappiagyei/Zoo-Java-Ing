@@ -1,93 +1,86 @@
 package com.ing.zoo;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Zoo {
     private ArrayList<Animal> animals;
+    public static final String[] COMMANDS = new String[4];
 
     public Zoo() {
         this.animals = new ArrayList<>();
+
+        COMMANDS[0] = "hello";
+        COMMANDS[1] = "give leaves";
+        COMMANDS[2] = "give meat";
+        COMMANDS[3] = "perform trick";
     }
 
-    public Animal getAnimalByName(String animalName){
-        Animal namedAnimal = null;
-        for (Animal animal:animals) {
-            if (animal.name.equals(animalName)){
-                namedAnimal = animal;
-            }
-        }
-        return namedAnimal;
-    }
-
+    /**
+     * A for loop that makes all animals say hello
+     */
     public void everyoneSayHello() {
         for (Animal animal : animals) {
-            System.out.println(animal.helloText);
+            animal.sayHello();
         }
     }
 
+    /**
+     * A for loop that goes through all animals with the given animalName
+     * if it's not found it gives an error
+     * @param animalName
+     */
     public void animalSayHello(String animalName) {
-        Animal greetingAnimal = null;
+        boolean found = false;
         for (Animal animal : animals) {
-            if (animal.name.equals(animalName)){
-                greetingAnimal = animal;
+            if (animal.name.equalsIgnoreCase(animalName)) {
+                animal.sayHello();
+                found = true;
+                break;
             }
-            assert greetingAnimal != null;
-            System.out.println(greetingAnimal.helloText);
+        }
+        if (!found) {
+            System.out.println("Dier met de naam " + animalName + " is niet gevonden.");
         }
     }
 
+    /**
+     * Adds an animal to the list of the zoo
+     * @param animal
+     * @return
+     */
     public boolean addAnimal(Animal animal) {
 
         return this.animals.add(animal);
     }
 
-    public static void main(String[] args) {
-        String[] commands = new String[4];
-        commands[0] = "hello";
-        commands[1] = "give leaves";
-        commands[2] = "give meat";
-        commands[3] = "perform trick";
+    /**
+     * Gives leaves to all animals that like it
+     */
+    public void giveLeaves(){
+        for (Animal animal:animals) {
+            animal.eatLeaves();
 
-        // declare the animals
-        Lion henk = new Lion("henk");
-        Hippo elsa = new Hippo("elsa");
-        Pig dora = new Pig("dora");
-        Tiger wally = new Tiger("wally");
-        Zebra marty = new Zebra("marty");
-
-        // makes a zoo for animals
-        Zoo artis = new Zoo();
-
-        artis.addAnimal(henk);
-        artis.addAnimal(elsa);
-        artis.addAnimal(dora);
-        artis.addAnimal(wally);
-        artis.addAnimal(marty);
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Voer uw command in: ");
-
-        String input = scanner.nextLine();
-
-        String twoWords = "Hello World";
-        int spaceIndex = twoWords.indexOf(' ');
-        String secondWord = twoWords.substring(spaceIndex+1);
-        System.out.println(secondWord);
-        
-        input.
-//        artis.animalSayHello(input);
-        System.out.println(input.);
-
-        System.out.println();
-
-//        if (input.equals(commands[0] + artis.animals))) {
-//            artis.animalSayHello();
-//        } else if (input.equals("hello")) {
-//            artis.everyoneSayHello();
-//
-//        } else {
-//            System.out.println("Unknown command: " + input);
-//        }
+        }
     }
+
+    /**
+     * Gives meat to all animals that like it
+     */
+    public void giveMeat(){
+        for (Animal animal:animals) {
+            animal.eatMeat();
+        }
+    }
+
+    /**
+     * Make the animals that can perform a trick
+     */
+    public void performTrick(){
+        for (Animal animal:animals) {
+            animal.performTrick();
+        }
+    }
+
 }

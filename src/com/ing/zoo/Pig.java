@@ -8,17 +8,17 @@ public class Pig extends Animal {
     public Pig(String name) {
         super(name);
     }
-
+    @Override
     public void sayHello() {
         helloText = "splash";
         System.out.println(helloText);
     }
-
+    @Override
     public void eatLeaves() {
         eatText = "munch munch oink";
         System.out.println(eatText);
     }
-
+    @Override
     public void eatMeat() {
         eatText = "nomnomnom oink thx";
         System.out.println(eatText);

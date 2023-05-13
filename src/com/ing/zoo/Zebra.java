@@ -15,10 +15,21 @@ public class Zebra extends Animal{
         helloText = "zebra zebra";
         System.out.println(helloText);
     }
-
+    @Override
     public void eatLeaves()
     {
         eatText = "munch munch zank yee bra";
         System.out.println(eatText);
+    }
+    @Override
+    public void performTrick(){
+        Random random = new Random();
+        int rnd = random.nextInt(2);
+        if (rnd == 0) {
+            trick = "starts galloping";
+        } else {
+            trick = "runs in circles";
+        }
+        System.out.println(trick);
     }
 }

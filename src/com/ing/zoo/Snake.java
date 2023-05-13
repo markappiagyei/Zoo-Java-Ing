@@ -2,34 +2,34 @@ package com.ing.zoo;
 
 import java.util.Random;
 
-public class Lion extends Animal {
+public class Snake extends Animal{
     public String trick;
+    public Snake(String name) {
+        super(name);
 
-    public Lion(String naam) {
-        super(naam);
     }
+
     @Override
     public void sayHello() {
-        helloText = "roooaoaaaaar";
+        this.helloText = "HISSSSSSSSSsssssss";
         System.out.println(helloText);
     }
 
     @Override
     public void eatMeat() {
-        eatText = "nomnomnom thx mate";
+        eatText = "NOMNONMNOM SSSSssssTT THANKSSSSSssss";
         System.out.println(eatText);
     }
+
 
     public void performTrick() {
         Random random = new Random();
         int rnd = random.nextInt(2);
         if (rnd == 0) {
-            trick = "super loud GROWWWWLLLLL";
+            trick = "slithering in the grass";
         } else {
-            trick = "jumps through burning ring";
+            trick = "starts playing dead";
         }
         System.out.println(trick);
     }
 }
-
-

@@ -10,14 +10,23 @@ public class Animal {
     }
 
     public void sayHello() {
-        helloText = "Hallo";
+        helloText = "Maakt nog even geen geluid";
         System.out.println(helloText);
     }
 
-    /**
-     * Standaardimplementatie van maakGeluid, we weten nog even niet welk geluid;
-     */
-    public void maakGeluid() {
-        System.out.println("Maakt nog even geen geluid");
+    public void eatLeaves(){
+    }
+
+    public void eatMeat( ){
+    }
+
+    public void performTrick(){
+    }
+
+    @Override
+    public String toString() {
+        return
+               "animal= " + getClass().getSimpleName() +
+                ", name= " + name;
     }
 }
